@@ -1,0 +1,11 @@
+tasks.named('wrapper') {
+  jarFile = rootProject.file('.gradle-wrapper/gradle-wrapper.jar')
+}
+
+tasks.register('exportbndrun', aQute.bnd.gradle.Export) {
+    description = 'Copies all runtime bundles to Distribution Directory'
+
+    bndrun = file("com.amitinside.product.luther.application/rtm-dep-nop.bndrun")
+    exporter = "bnd.runbundles"
+    destinationDirectory = distsDirectory.dir("dist/output/current")  
+}
